@@ -59,7 +59,7 @@ Definitive mapping of variables for the Girls' Wellbeing survey and the Zakho FI
 
 | Variable | Type | Calculation | Notes |
 |---|---:|---|---|
-| `social_index` | numeric (0–5) | average of (`friends_to_talk`, `sense_of_belonging`, `people_understand_me`) | Use `NA` for averages if two or more items missing; otherwise average available items. Document imputation rule.|
+| `social_index` | numeric (0–5) | average of (`friends_to_talk`, `sense_of_belonging`, `people_understand_me`) | |
 
 ---
 
@@ -75,7 +75,7 @@ Definitive mapping of variables for the Girls' Wellbeing survey and the Zakho FI
 
 | Variable | Type | Calculation | Notes |
 |---|---:|---|---|
-| `confidence_index` | numeric (0–5) | average of (`conf_self`, `conf_handle`, `conf_proud`) | Same missing rules as `social_index`.|
+| `confidence_index` | numeric (0–5) | average of (`conf_self`, `conf_handle`, `conf_proud`) | |
 
 ---
 
@@ -114,7 +114,7 @@ Definitive mapping of variables for the Girls' Wellbeing survey and the Zakho FI
 
 **Notes:**
 
-- If respondents answered "I didn't know about it", set `voted_for_zakho = "dont_know"` and other fields optional/NA as appropriate.
+- If respondents answered "I didn't know about it", set `voted_for_zakho = "dont_know"`.
 
 ---
 
