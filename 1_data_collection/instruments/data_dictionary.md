@@ -1,6 +1,6 @@
 # Data Dictionary
 
-Definitive mapping of variables for the Girls' Wellbeing survey and the Zakho FIFA nomination (community) survey. Use this when preparing the analysis dataset or writing `data_documentation.md`.
+Definitive mapping of variables for the Girls' Wellbeing survey and the Zakho FIFA nomination (community) survey.
 
 ## General notes
 
@@ -90,14 +90,14 @@ Definitive mapping of variables for the Girls' Wellbeing survey and the Zakho FI
 
 **Notes:**
 
-- For respondents with `in_program == "no"`, these fields should be `NA` or empty.
+- For respondents with `in_program == "no"`, these fields should be `NA`.
 - Ensure skip logic is applied in forms to avoid accidental answers from non-participants.
 
 ---
 
 ## B. Zakho FIFA Nomination / Community Sentiment Survey
 
-**Suggested file name:** `fifa_campaign_anonymized.csv`
+**Suggested file name:** `community_survey_anonymized.csv`
 
 ### Identifiers & context
 
