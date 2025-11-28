@@ -114,7 +114,7 @@ Definitive mapping of variables for the Girls' Wellbeing survey and the Zakho FI
 
 **Notes:**
 
-- If respondents answered "I didn't know about it", set `voted_for_zakho = "dont_know"` and other fields optional/NA as appropriate.
+- If respondents answered "I didn't know about it", set `voted_for_zakho = "dont_know"`.
 
 ---
 
