@@ -59,15 +59,17 @@ After export from KoBoToolbox:
 
 ### Final Outputs
 
-Two datasets were created:
+Two datasets:
 
-1. **girls_wellbeing_clean.csv**
-   - Includes wellbeing scores, social support indicators, and football access data  
-   - Ready for descriptive statistics and thematic cross-tabs  
+**Raw data** (from KoboToolbox):
+- `girls_survey_anonymized.csv` - 102 participants
+- `community_survey_anonymized.csv` - 168 participants
+- Located in `1_data_collection/data/raw/`
 
-2. **community_football_identity_clean.csv**  
-   - Captures pride, stress-relief values, and awareness of the Zakho nomination  
-   - Ready for rapid perception analysis  
+**Cleaned data** (after validation):
+- `girls_survey_clean.csv`
+- `community_survey_clean.csv`
+- Located in `1_data_collection/data/cleaned/`  
 
 ### Codebook Reference
 
