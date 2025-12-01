@@ -29,19 +29,23 @@ Football is everywhere in Kurdistan. It is one of the communal spaces where age,
 
 The FIFA Best Fan nomination made visible what football already means to Zakho's identity. But it also exposed a gap: while the city celebrates its football culture, the girls playing in the camps remain largely invisible to that same narrative. This project sits in that gap
 
-## 4. Evidence and Gaps
+## 4. What This Study Does
 
-Studies across displacement contexts suggest that sport can support wellbeing by offering routine, physical activation, and social connection. Yet important gaps remain:
+The **Peaceball Project** conducts two parallel investigations:
 
-- Little is known about displaced girls' experiences with football in Kurdistan specifically.
-- Informal, community-grown programs like the ones girls access are rarely studied.
-- The emotional meaning of football fandom in post-conflict settings remains unexplored
-- Research connecting individual wellbeing (girls on the pitch) to collective identity (community around professional clubs) doesn't exist.
+### Study 1: Girls' Wellbeing & Football Participation
+Measures emotional wellbeing, social connection, and confidence among displaced adolescent girls in camps. Compares participants in football programs with non-participants to understand how access shapes wellbeing differently.
 
-These gaps give this project its purpose
+**Research Question**: Does football participation improve wellbeing outcomes for displaced girls?
 
-## 5. What This Study Does
+### Study 2: Community Sentiment During FIFA Nomination
+Captures community pride, emotional response, and sense of belonging during Zakho SC's FIFA Best Fan Award nomination. Measures how football fandom influences collective identity across age, gender, and displacement status.
 
-The **Peaceball Project** measures wellbeing among displaced girls who participate in football programs, compares them to girls who haven't had access, and captures community sentiment during a historic moment of football pride in Zakho.
+**Research Question**: How does football culture shape community sentiment in a post-conflict setting?
 
-By holding both scales, the personal and the collective, it asks: ***What does football make possible in a place rebuilding from conflict?***
+### The Connection
+By holding both scales—the personal (girls on the pitch) and the collective (community celebrating football)—this study asks: ***What does football make possible in a place rebuilding from conflict?***
+
+The two datasets reveal whether the pride visible at the city level reaches the girls playing at the camps' edges, and whether their experiences connect to the larger football identity that defines Zakho.
+
+For detailed discussion of evidence gaps and what this study contributes, see [gaps_and_opportunities.md](gaps_and_opportunities.md).
