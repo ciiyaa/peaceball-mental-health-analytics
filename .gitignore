@@ -4,10 +4,14 @@ __pycache__/
 *$py.class
 *.so
 .Python
+
+# Virtual environments (ignore any folder with venv in the name)
 .venv/
 venv/
+*venv*/
 ENV/
 env/
+.env
 
 # Data files (if needed to protect sensitive data)
 # *.csv
