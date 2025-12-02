@@ -5,6 +5,7 @@ Checks data quality against specifications in data_dictionary.md
 
 import csv
 
+
 def validate_range(value, min_val, max_val):
     try:
         v = float(value) if value else None
@@ -19,7 +20,7 @@ print("="*60)
 print("DATA VALIDATION REPORT")
 print("="*60)
 
-with open('1_data_collection/data/raw/girls_survey_anonymized.csv', 'r') as f:
+with open('../1_data_collection/data/raw/girls_survey_anonymized.csv', 'r') as f:
     reader = csv.DictReader(f)
     girls_data = list(reader)
 
@@ -64,7 +65,7 @@ print(f"  Participants: {participants}")
 print(f"  Non-participants: {non_participants}")
 
 # Community survey
-with open('1_data_collection/data/raw/community_survey_anonymized.csv', 'r') as f:
+with open('../1_data_collection/data/raw/community_survey_anonymized.csv', 'r') as f:
     reader = csv.DictReader(f)
     comm_data = list(reader)
 
