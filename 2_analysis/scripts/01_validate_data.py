@@ -7,8 +7,8 @@ import pandas as pd
 import numpy as np
 
 # Load raw data
-girls = pd.read_csv('1_data_collection/data/raw/girls_survey_anonymized.csv')
-community = pd.read_csv('1_data_collection/data/raw/community_survey_anonymized.csv')
+girls = pd.read_csv('../../1_data_collection/data/raw/girls_survey_anonymized.csv')
+community = pd.read_csv('../../1_data_collection/data/raw/community_survey_anonymized.csv')
 
 print("="*60)
 print("DATA VALIDATION REPORT")

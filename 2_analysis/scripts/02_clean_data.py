@@ -7,8 +7,8 @@ import pandas as pd
 import numpy as np
 
 print("Loading raw data...")
-girls = pd.read_csv('1_data_collection/data/raw/girls_survey_anonymized.csv')
-community = pd.read_csv('1_data_collection/data/raw/community_survey_anonymized.csv')
+girls = pd.read_csv('../../1_data_collection/data/raw/girls_survey_anonymized.csv')
+community = pd.read_csv('../../1_data_collection/data/raw/community_survey_anonymized.csv')
 
 print(f"Girls survey: {len(girls)} rows")
 print(f"Community survey: {len(community)} rows")
@@ -60,10 +60,10 @@ else:
 
 # Save cleaned datasets
 print("\nSaving cleaned datasets...")
-girls.to_csv('1_data_collection/data/cleaned/girls_survey_clean.csv', index=False)
+girls.to_csv('../../1_data_collection/data/cleaned/girls_survey_clean.csv', index=False)
 print(f"  Saved girls_survey_clean.csv ({len(girls)} rows)")
 
-community.to_csv('1_data_collection/data/cleaned/community_survey_clean.csv', index=False)
+community.to_csv('../../1_data_collection/data/cleaned/community_survey_clean.csv', index=False)
 print(f"  Saved community_survey_clean.csv ({len(community)} rows)")
 
 print("\nCleaning complete!")

@@ -8,12 +8,12 @@ import csv
 print("Loading raw data...")
 
 # Load girls survey
-with open('1_data_collection/data/raw/girls_survey_anonymized.csv', 'r') as f:
+with open('../../1_data_collection/data/raw/girls_survey_anonymized.csv', 'r') as f:
     reader = csv.DictReader(f)
     girls_data = list(reader)
 
 # Load community survey
-with open('1_data_collection/data/raw/community_survey_anonymized.csv', 'r') as f:
+with open('../../1_data_collection/data/raw/community_survey_anonymized.csv', 'r') as f:
     reader = csv.DictReader(f)
     comm_data = list(reader)
 
@@ -64,14 +64,14 @@ print(f"  Confidence index verified: {conf_mismatches} mismatches found")
 # Save cleaned datasets (copy to cleaned folder)
 print("\nSaving cleaned datasets...")
 
-with open('1_data_collection/data/cleaned/girls_survey_clean.csv', 'w', newline='') as f:
+with open('../../1_data_collection/data/cleaned/girls_survey_clean.csv', 'w', newline='') as f:
     if girls_data:
         writer = csv.DictWriter(f, fieldnames=girls_data[0].keys())
         writer.writeheader()
         writer.writerows(girls_data)
         print(f"  Saved girls_survey_clean.csv ({len(girls_data)} rows)")
 
-with open('1_data_collection/data/cleaned/community_survey_clean.csv', 'w', newline='') as f:
+with open('../../1_data_collection/data/cleaned/community_survey_clean.csv', 'w', newline='') as f:
     if comm_data:
         writer = csv.DictWriter(f, fieldnames=comm_data[0].keys())
         writer.writeheader()
