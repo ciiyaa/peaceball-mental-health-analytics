@@ -42,3 +42,53 @@ Community participants ranged across adult age categories, with representation f
 
 ---
 
+## Study 1: Impact of Football Program on Adolescent Wellbeing
+
+### Primary Outcomes
+
+**WHO-5 Wellbeing Index:**
+Program participants reported significantly higher wellbeing scores (*M* = 82.13, *SD* = 10.79) compared to non-participants (*M* = 40.70, *SD* = 3.75), *U* = 0.00, *p* < .001, Cohen's *d* = 5.13, 95% CI [4.27, 5.98]. This represents an exceptionally large effect size, with participants scoring more than 4 standard deviations higher than non-participants.
+
+For context, WHO-5 scores below 50 suggest poor wellbeing and indicate need for depression screening. Non-participants' mean score of 40.70 falls in this clinical concern range, while participants' mean of 82.13 indicates good mental health. Published norms for adolescents suggest scores above 70 reflect positive wellbeing.
+
+**Social Support Index:**
+Participants reported substantially higher perceived social support (*M* = 4.31, *SD* = 0.52) compared to non-participants (*M* = 1.99, *SD* = 0.16), *U* = 0.00, *p* < .001, *d* = 5.86, 95% CI [4.94, 6.77]. On the 1-5 scale, participants averaged above 4 ("agree") while non-participants averaged near 2 ("disagree"), indicating fundamental differences in social connectedness.
+
+**Self-Confidence Index:**
+Similarly, participants demonstrated higher self-confidence (*M* = 4.16, *SD* = 0.61) than non-participants (*M* = 2.07, *SD* = 0.14), *U* = 0.00, *p* < .001, *d* = 4.64, 95% CI [3.85, 5.42]. This large effect suggests program participation is associated with meaningful improvements in self-efficacy and personal capability beliefs.
+
+![Figure 2](figures/figure2_group_comparisons.png)
+*Figure 2. Group comparisons showing distributions and mean differences across three wellbeing outcomes. Box plots include individual data points, means (red diamonds), and medians. *** indicates p < .001.*
+
+![Figure 3](figures/figure3_effect_sizes.png)
+*Figure 3. Forest plot of effect sizes (Cohen's d) with 95% confidence intervals. All effects exceed the "large" threshold (d = 0.8), indicating substantial practical significance.*
+
+### Correlational Patterns Among Wellbeing Components
+
+Correlation analyses among program participants revealed moderate to strong associations between wellbeing components (see Figure 4). WHO-5 items showed intercorrelations ranging from *r* = .42 to *r* = .68 (all *p*s < .001), suggesting they tap related but distinct aspects of wellbeing.
+
+Social support and self-confidence indices were moderately correlated (*r* = .56, *p* < .001), suggesting these psychosocial benefits develop together. Both indices showed moderate associations with specific WHO-5 items:
+- Social support correlated most strongly with feeling cheerful (*r* = .61) and interested (*r* = .58)
+- Self-confidence correlated most strongly with feeling active (*r* = .64) and rested (*r* = .59)
+
+These patterns suggest the program may support wellbeing through multiple pathways: fostering social connections that enhance positive mood, and building confidence that promotes energy and engagement.
+
+![Figure 4](figures/figure4_correlation_heatmap.png)
+*Figure 4. Correlation matrix showing relationships between WHO-5 wellbeing items and psychosocial indices among program participants (n = 79). Stronger red colors indicate stronger positive correlations.*
+
+### Statistical and Practical Significance
+
+The effect sizes observed in this study (*d* = 4.64 to 5.86) far exceed conventional thresholds for "large" effects (*d* = 0.8). While such extreme effect sizes are unusual in psychosocial research, several factors may explain these findings:
+
+1. **Selection effects:** Participants self-selected into the program, potentially reflecting pre-existing differences in family support, motivation, or opportunity.
+
+2. **Comparison group characteristics:** Non-participants represent a particularly vulnerable subgroup, with wellbeing scores suggesting clinical-level distress.
+
+3. **Genuine program impact:** The combination of physical activity, team sport participation, and structured programming in a displacement context may produce substantial benefits.
+
+4. **Measurement considerations:** The cross-sectional design cannot establish causality. Longitudinal data would clarify whether low wellbeing predicts non-participation or participation improves wellbeing.
+
+Despite these interpretive caveats, the magnitude and consistency of differences across multiple outcomes suggest meaningful associations between program participation and psychosocial wellbeing in this displaced adolescent population.
+
+---
+
