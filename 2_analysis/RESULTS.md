@@ -92,3 +92,63 @@ Despite these interpretive caveats, the magnitude and consistency of differences
 
 ---
 
+## Study 2: Community Sentiment and Collective Identity
+
+### Voting Behavior and FIFA Recognition
+
+Community members overwhelmingly supported Zakho FC's FIFA nomination, with 77.5% voting "yes" in the poll. This high support rate reflects strong collective identification with the team despite widespread displacement.
+
+### Football-Related Sentiment
+
+**Support for Zakho FC:**
+Community members reported high levels of support for the team (*M* = 4.23, *SD* = 0.82), with 85.0% rating their support as 4 or 5 on the 5-point scale. This suggests the team maintains strong community attachment even among displaced populations.
+
+**Football as Stress Relief:**
+Participants endorsed football as a source of stress relief (*M* = 3.97, *SD* = 0.91), with 73.3% rating it 4 or higher. In the context of displacement, this finding suggests football serves adaptive coping functions beyond entertainment.
+
+**Pride When Team Plays:**
+Community members reported strong pride when watching Zakho FC (*M* = 4.35, *SD* = 0.79), with 88.3% rating pride at 4 or 5. This nearly universal high rating indicates the team functions as a source of collective identity and positive emotion.
+
+![Figure 5](figures/figure5_community_sentiment.png)
+*Figure 5. Distribution of community sentiment scores showing high endorsement across all three football-related variables, plus voting behavior in the FIFA poll.*
+
+### Demographic Differences in Sentiment
+
+**Gender Comparisons:**
+Male and female community members showed similar sentiment patterns across all three variables (all *p*s > .05). Support for Zakho FC, stress relief from football, and pride when the team plays did not differ by gender, suggesting football fandom transcends gender divisions in this community.
+
+Voting behavior also did not differ by gender (*χ*² = 0.82, *p* = .365), with both males (80.6%) and females (72.5%) showing high support rates.
+
+**Residence Status:**
+Sentiment scores did not differ significantly across residence status groups (originally from Zakho vs. displaced to Zakho vs. other; all *p*s > .10). This finding suggests that connection to the team is maintained regardless of displacement history—both original residents and those displaced to Zakho identify strongly with the team.
+
+**Age Group Patterns:**
+No significant age-related differences emerged in sentiment scores (*p*s > .05), indicating that football fandom and team identification span generations within the displaced community.
+
+![Figure 6](figures/figure6_demographic_comparisons.png)
+*Figure 6. Sentiment scores across demographic subgroups. Top row shows gender comparisons; bottom row shows residence status comparisons. Consistent high ratings across groups demonstrate universal community support.*
+
+### Predictors of Voting Behavior
+
+To understand what drove voting decisions, we examined whether sentiment scores predicted voting "yes" for Zakho FC in the FIFA poll. All three sentiment variables showed strong associations with voting:
+
+- **Support for Zakho:** Voters averaged 4.51 vs. non-voters 3.31 (*U* = 89.5, *p* < .001, *d* = 1.62)
+- **Stress Relief:** Voters averaged 4.23 vs. non-voters 2.92 (*U* = 112.0, *p* < .001, *d* = 1.53)
+- **Pride:** Voters averaged 4.61 vs. non-voters 3.38 (*U* = 74.5, *p* < .001, *d* = 1.79)
+
+A logistic regression model including all three predictors achieved 95.0% accuracy in classifying voting behavior (AUC = .997), indicating these sentiment measures strongly predict community support for the team.
+
+### Integration of Individual and Community Findings
+
+The convergence of findings across Studies 1 and 2 reveals how football operates at multiple levels in this displaced community:
+
+**Individual Level (Study 1):** Program participation associates with substantially higher wellbeing, social support, and self-confidence among adolescent girls.
+
+**Community Level (Study 2):** Football fandom unites community members across demographic divides, providing stress relief and collective pride.
+
+Together, these findings suggest football serves both individual developmental functions (building skills, relationships, self-efficacy) and collective functions (maintaining cultural identity, fostering unity despite displacement).
+
+The FIFA nomination campaign represented a rare moment of positive recognition for a displaced community, with the team's success offering symbolic victory amid adversity. The near-universal community support (77.5% voting yes) and high pride ratings demonstrate how sport can sustain collective identity across displacement contexts.
+
+---
+
