@@ -4,6 +4,8 @@
 
 ---
 
+[Check the Website Here!](https://ciiyaa.github.io/peaceball-mental-health-analytics/)
+
 ## The Story
 
 In Zakho, Kurdistan Region of Iraq, thousands of displaced families live in camps and informal settlements. Among them are adolescent girls who've lost their homes, schools, and sense of normalcy. Various organizations have tried different interventions, but rigorous evaluation of what actually helps is rare.
@@ -11,8 +13,6 @@ In Zakho, Kurdistan Region of Iraq, thousands of displaced families live in camp
 **The Peaceball project** is my initiative to launch a structured football program that builds mental health resilience and community connection through sport. But before launching, I needed to understand: Does this approach actually work? What does the existing data tell us about football's impact on wellbeing in displacement contexts?
 
 This analysis uses survey data from 102 adolescent girls and 168 community members to build the evidence base and demonstrate the potential.
-
-<img src="docs/images/hope.jpg" alt="Girls playing football in Zakho" width="700"/>
 
 ---
 
