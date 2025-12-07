@@ -6,14 +6,13 @@
 
 ## The Story
 
-In Zakho, Iraq, thousands of displaced families live in camps and informal settlements. Among them are adolescent girls who've lost their homes, schools, and sense of normalcy. Various organizations have tried different interventions, but rigorous evaluation of what actually helps is rare.
+In Zakho, Kurdistan Region of Iraq, thousands of displaced families live in camps and informal settlements. Among them are adolescent girls who've lost their homes, schools, and sense of normalcy. Various organizations have tried different interventions, but rigorous evaluation of what actually helps is rare.
 
 **The Peaceball project** is my initiative to launch a structured football program that builds mental health resilience and community connection through sport. But before launching, I needed to understand: Does this approach actually work? What does the existing data tell us about football's impact on wellbeing in displacement contexts?
 
 This analysis uses survey data from 102 adolescent girls and 168 community members to build the evidence base and demonstrate the potential.
 
-<img src="docs/images/field_photo_1.jpg" alt="Girls playing football in Zakho" width="700"/>
-*[Add your field photo: Girls participating in the Peaceball program]*
+<img src="docs/images/hope.jpg" alt="Girls playing football in Zakho" width="700"/>
 
 ---
 
@@ -42,9 +41,6 @@ These aren't small differences. Effect sizes ranged from d=4.6 to d=5.9 - far be
 In a community fractured by displacement, football emerged as a rare unifying force. Younger generations showed stronger attachment, but even older adults reported high pride when the team plays.
 
 ![Community Sentiment](2_analysis/figures/figure5_community_sentiment.png)
-
-<img src="docs/images/field_photo_2.jpg" alt="Community gathering for football" width="700"/>
-*[Add your field photo: Community members at a Zakho FC event]*
 
 ---
 
@@ -205,9 +201,6 @@ This is the beginning of the Peaceball initiative, not the end.
 ## Acknowledgments
 
 To the 102 girls who shared their experiences, and the 168 community members who told us what football means to them - this is your story, told through data.
-
-<img src="docs/images/field_photo_3.jpg" alt="Peaceball program participants" width="700"/>
-*[Add your field photo: Group photo with program participants]*
 
 ---
 
