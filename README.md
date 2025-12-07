@@ -65,7 +65,7 @@ This isn't just descriptive statistics - we built this to publication standards:
 - Effect size forest plots with 95% CIs
 - Demographic breakdowns and correlation matrices
 
-See the full statistical details in [`STATISTICAL_APPENDIX.md`](2_analysis/STATISTICAL_APPENDIX.md) and results summary in [`RESULTS.md`](RESULTS.md).
+See the full statistical details in [`STATISTICAL_APPENDIX.md`](2_analysis/STATISTICAL_APPENDIX.md).
 
 ---
 
