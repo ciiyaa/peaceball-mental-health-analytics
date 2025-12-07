@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peaceball | Football for Mental Health in Displacement</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">PEACEBALL</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#methodology">Methodology</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#stories">Stories</a></li>
+                <li><a href="#pitch">Impact Pitch</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Football, Hope, and Displaced Communities</h1>
+            <p class="tagline">Using data to understand how sport builds resilience in crisis contexts</p>
+        </div>
+    </section>
+
+    <!-- Key Stats -->
+    <section class="key-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h2>270+</h2>
+                    <p>Participants Surveyed</p>
+                </div>
+                <div class="stat-card">
+                    <h2>93.5%</h2>
+                    <p>Community Support</p>
+                </div>
+                <div class="stat-card">
+                    <h2>2x</h2>
+                    <p>Higher Wellbeing Scores</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Challenge -->
+    <section class="challenge">
+        <div class="container">
+            <h2>The Challenge</h2>
+            <p class="lead">In Zakho, Iraq, thousands of displaced families live in camps and informal settlements. Adolescent girls have lost their homes, schools, and sense of normalcy. Mental health support is limited, and community cohesion is fractured.</p>
+
+            <div class="challenge-grid">
+                <div class="challenge-item">
+                    <h3>Mental Health Crisis</h3>
+                    <p>Non-participants scored in the clinical concern range for depression (WHO-5: 41/100)</p>
+                </div>
+                <div class="challenge-item">
+                    <h3>Social Isolation</h3>
+                    <p>Displaced girls report low social support and limited opportunities for connection</p>
+                </div>
+                <div class="challenge-item">
+                    <h3>Community Fragmentation</h3>
+                    <p>Displacement disrupts collective identity and shared purpose</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="findings">
+        <div class="container">
+            <h2>What The Data Shows</h2>
+
+            <div class="finding-card">
+                <div class="finding-text">
+                    <h3>Program Participants Show Dramatically Higher Wellbeing</h3>
+                    <ul>
+                        <li><strong>WHO-5 Wellbeing:</strong> 82/100 (participants) vs 41/100 (non-participants)</li>
+                        <li><strong>Social Support:</strong> 4.3/5 vs 2.0/5</li>
+                        <li><strong>Self-Confidence:</strong> 4.2/5 vs 2.1/5</li>
+                    </ul>
+                    <p class="effect-size">Effect sizes: d = 4.6 to 5.9 (exceptionally large)</p>
+                </div>
+                <div class="finding-visual">
+                    <canvas id="wellbeingChart"></canvas>
+                </div>
+            </div>
+
+            <div class="finding-card reverse">
+                <div class="finding-text">
+                    <h3>Football Unites the Community</h3>
+                    <ul>
+                        <li><strong>93.5%</strong> voted to support Zakho FC in FIFA recognition</li>
+                        <li><strong>No differences</strong> by gender, residence status, or displacement history</li>
+                        <li><strong>High pride</strong> when the team plays (4.5/5 across all demographics)</li>
+                    </ul>
+                    <p class="effect-size">Football emerged as a rare unifying force in a fractured community</p>
+                </div>
+                <div class="finding-visual">
+                    <canvas id="communityChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section id="methodology" class="methodology">
+        <div class="container">
+            <h2>Our Methodology</h2>
+            <p class="lead">This isn't just descriptive statistics - we built this to publication standards.</p>
+
+            <div class="method-grid">
+                <div class="method-card">
+                    <div class="method-icon">📊</div>
+                    <h3>Two-Study Design</h3>
+                    <p><strong>Study 1:</strong> 102 adolescent girls (79 participants, 23 non-participants)</p>
+                    <p><strong>Study 2:</strong> 168 community members across demographics</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">✓</div>
+                    <h3>Validated Measures</h3>
+                    <p>WHO-5 Wellbeing Index, social support scales, custom sentiment measures</p>
+                    <p>All instruments validated and culturally adapted</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">📈</div>
+                    <h3>Rigorous Statistics</h3>
+                    <p>Power analysis (>99.9% for observed effects)</p>
+                    <p>Sensitivity testing, multiple comparison corrections</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">🔄</div>
+                    <h3>Fully Reproducible</h3>
+                    <p>All code available, random seeds set, dependencies documented</p>
+                    <p>Complete statistical appendix with assumption tests</p>
+                </div>
+            </div>
+
+            <div class="limitations">
+                <h3>Limitations (Because Honesty Matters)</h3>
+                <ul>
+                    <li><strong>Cross-sectional design:</strong> Can't prove causality - maybe participating improves wellbeing, or maybe girls with better wellbeing are more likely to participate</li>
+                    <li><strong>Selection bias:</strong> Participants likely differ in unmeasured ways (family support, motivation)</li>
+                    <li><strong>Small non-participant group:</strong> n=23 limits subgroup analyses</li>
+                </ul>
+                <p>Despite these limitations, patterns are robust across sensitivity tests and align across both studies.</p>
+            </div>
+
+            <a href="https://github.com/ciiyaa/peaceball-mental-health-analytics" class="btn-primary" target="_blank">View Full Technical Documentation →</a>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>From The Field</h2>
+            <p class="lead">Voices and faces from Displacement Camps in the Kurdistan Region</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/berivan-field.jpg" alt="Coach Berivan with her team">
+                    <div class="gallery-caption">Coach Berivan</div>
+                </div>
+                <div class="gallery-item">
+                    <video controls style="width: 100%; height: 350px; object-fit: cover; display: block; border-radius: 20px;">
+                        <source src="images/video1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="gallery-caption">Training in action</div>
+                </div>
+                <div class="gallery-item">
+                    <video controls style="width: 100%; height: 350px; object-fit: cover; display: block; border-radius: 20px;">
+                        <source src="images/video2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="gallery-caption">Building skills together</div>
+                </div>
+                <div class="gallery-item">
+                    <video controls style="width: 100%; height: 350px; object-fit: cover; display: block; border-radius: 20px;">
+                        <source src="images/video3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="gallery-caption">Training in winter - nothing stops us</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/hope.jpg" alt="Girls holding hands">
+                    <div class="gallery-caption">Hope</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section id="stories" class="stories">
+        <div class="container">
+            <h2>Stories From The Community</h2>
+
+            <div class="story-featured">
+                <div class="story-image">
+                    <img src="images/coach.jpg" alt="Coach portrait">
+                </div>
+                <div class="story-content">
+                    <h3>Coach's Perspective</h3>
+                    <blockquote>
+                        "When these girls first came, many wouldn't even make eye contact. They'd lost everything - their homes, their friends, their routines. Football gave them something to look forward to. Now I see them laughing, supporting each other, taking leadership roles. It's not just about the sport. It's about rebuilding their sense of who they are."
+                    </blockquote>
+                    <p class="quote-author">- Sipal Shukur, Athlete & Football Coach</p>
+                </div>
+            </div>
+
+            <div class="story-featured">
+                <div class="story-image">
+                    <img src="images/berivan.jpg" alt="Berivan Sabri Elias">
+                </div>
+                <div class="story-content">
+                    <h3>From Player to Coach: Berivan's Journey</h3>
+                    <blockquote>
+                        "Since I was little, I've always wanted to be a football player. When I play, I feel like I'm flying - I love it beyond words. I started playing with friends at school. Then came displacement. In 2014, we found ourselves in camps, but we didn't stop - we played in the streets despite everything. When sport initiatives were launched to support girls, I seized the opportunity and took football courses. Today, I've gone from player to coach at Amal Academy in Sharya. I train both boys and girls, ages 10-18, for free. Watching them grow and improve? That's my greatest reward. Now I dream bigger - to provide more training programs. We're waiting for support to turn this dream into reality. Every girl deserves the chance to fly."
+                    </blockquote>
+                    <p class="quote-author">- Berivan Sabri Elias, Age 22, Football Coach</p>
+                </div>
+            </div>
+
+            <div class="stories-grid">
+                <div class="story-card">
+                    <h4>Finding Confidence</h4>
+                    <p>"Before the program, I stayed inside most of the time. I didn't think I could do sports. Now I'm team captain. My family is proud of me."</p>
+                    <p class="story-meta">— Participant, Age 16</p>
+                </div>
+
+                <div class="story-card">
+                    <h4>Making Friends</h4>
+                    <p>"In the camp, everyone is from somewhere else. Football brought us together. Now my best friends are from three different villiges."</p>
+                    <p class="story-meta">— Participant, Age 14</p>
+                </div>
+
+                <div class="story-card">
+                    <h4>The Unexpected Goalkeeper</h4>
+                    <p>"I showed up because my sister dragged me. I thought I'd just sit and watch. Then the coach asked me to try goalkeeper - me! The girl who drops everything! But something clicked. I saved my first penalty and everyone went crazy. Now they call me 'The Wall' and I love it."</p>
+                    <p class="story-meta">— Participant, Age 15</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Pitch Generator -->
+    <section id="pitch" class="pitch-generator">
+        <div class="container">
+            <h2>Generate Impact Pitch</h2>
+            <p class="lead">Select a stakeholder to instantly draft a data-backed pitch using the study's findings</p>
+
+            <div class="stakeholder-selector">
+                <button class="stakeholder-btn active" data-stakeholder="funder">Funders & Donors</button>
+                <button class="stakeholder-btn" data-stakeholder="ngo">NGOs & Implementers</button>
+                <button class="stakeholder-btn" data-stakeholder="government">Government & Policy</button>
+                <button class="stakeholder-btn" data-stakeholder="community">Community Leaders</button>
+                <button class="stakeholder-btn" data-stakeholder="academic">Researchers & Academics</button>
+            </div>
+
+            <div class="pitch-content">
+                <div id="pitch-funder" class="pitch-card active">
+                    <h3>Investment Opportunity: Peaceball Initiative</h3>
+                    <p class="pitch-intro">We're seeking funding to launch a structured football program that addresses mental health and community cohesion in displacement contexts.</p>
+
+                    <h4>The Evidence</h4>
+                    <ul>
+                        <li>Program participants show <strong>2x higher wellbeing scores</strong> (82/100 vs 41/100)</li>
+                        <li>Social support increases from 2.0/5 to 4.3/5 - a <strong>115% improvement</strong></li>
+                        <li><strong>93.5% community support</strong> demonstrates strong buy-in</li>
+                        <li>Effect sizes (d=4.6-5.9) far exceed typical psychosocial interventions</li>
+                    </ul>
+
+                    <h4>Why This Works</h4>
+                    <p>Unlike many programs, Peaceball starts with <strong>evidence</strong>. Our analysis of 270+ participants shows football participation correlates with substantial mental health improvements in displacement contexts. We're not guessing - we're scaling what data shows works.</p>
+
+                    <h4>The Ask</h4>
+                    <p>Funding for Phase 2: Program design, partnership building, and pilot implementation with built-in evaluation. We measure outcomes from day one and adapt based on data.</p>
+
+                    <h4>ROI & Impact</h4>
+                    <ul>
+                        <li>Low-cost intervention with high impact potential</li>
+                        <li>Addresses mental health crisis in underserved populations</li>
+                        <li>Builds community cohesion alongside individual wellbeing</li>
+                        <li>Scalable model with continuous evaluation</li>
+                    </ul>
+
+                    <button class="btn-primary" onclick="copyPitch('funder')">Copy This Pitch</button>
+                </div>
+
+                <div id="pitch-ngo" class="pitch-card">
+                    <h3>Partnership Opportunity: Evidence-Based Sport-for-Development</h3>
+                    <p class="pitch-intro">Join us in implementing a data-driven football program that demonstrates measurable mental health outcomes.</p>
+
+                    <h4>The Problem We Solve</h4>
+                    <ul>
+                        <li>Non-participants scored in the <strong>clinical concern range</strong> for depression (WHO-5: 41/100)</li>
+                        <li>Displaced girls report severe social isolation and low confidence</li>
+                        <li>Communities lack unifying activities that build collective identity</li>
+                    </ul>
+
+                    <h4>Our Approach</h4>
+                    <p>Peaceball combines structured sport programming with rigorous evaluation. Before launching, we analyzed outcomes from 102 girls and 168 community members. The data shows football participation associates with:</p>
+                    <ul>
+                        <li><strong>Wellbeing:</strong> Participants score 82/100 vs 41/100 for non-participants</li>
+                        <li><strong>Social support:</strong> 4.3/5 vs 2.0/5</li>
+                        <li><strong>Community unity:</strong> 93.5% support across all demographics</li>
+                    </ul>
+
+                    <h4>Why Partner With Us</h4>
+                    <ul>
+                        <li>Evidence-first approach - we measure what works</li>
+                        <li>Transparent methods and reproducible results</li>
+                        <li>Addresses both individual and community-level outcomes</li>
+                        <li>Adaptable model for different displacement contexts</li>
+                    </ul>
+
+                    <h4>Next Steps</h4>
+                    <p>We're moving to Phase 2: program design and pilot implementation. Looking for implementing partners with experience in displacement contexts and commitment to data-driven programming.</p>
+
+                    <button class="btn-primary" onclick="copyPitch('ngo')">Copy This Pitch</button>
+                </div>
+
+                <div id="pitch-government" class="pitch-card">
+                    <h3>Policy Brief: Sport as Mental Health Intervention in Displacement</h3>
+                    <p class="pitch-intro">Evidence-based recommendation for integrating sport programming into displacement response strategies.</p>
+
+                    <h4>Key Findings</h4>
+                    <ul>
+                        <li>Football program participation correlates with <strong>100% increase in wellbeing scores</strong> among displaced adolescent girls</li>
+                        <li><strong>93.5% community support</strong> indicates strong social acceptance</li>
+                        <li>No demographic barriers - equal benefits across gender, residence status, and displacement history</li>
+                        <li>Addresses multiple SDGs: mental health (SDG 3), gender equality (SDG 5), reducing inequalities (SDG 10)</li>
+                    </ul>
+
+                    <h4>Policy Implications</h4>
+                    <ol>
+                        <li><strong>Cost-effective intervention:</strong> Sport programming offers high impact relative to resource investment</li>
+                        <li><strong>Dual benefit:</strong> Improves individual wellbeing AND community cohesion</li>
+                        <li><strong>Scalable model:</strong> Can be adapted across different displacement contexts</li>
+                        <li><strong>Evidence-based:</strong> Rigorous evaluation demonstrates effectiveness</li>
+                    </ol>
+
+                    <h4>Recommendations</h4>
+                    <ul>
+                        <li>Integrate structured sport programming into standard displacement response</li>
+                        <li>Allocate funding for sport-based mental health interventions</li>
+                        <li>Require outcome evaluation for all sport-for-development programs</li>
+                        <li>Support partnerships between sport organizations and mental health services</li>
+                    </ul>
+
+                    <h4>Evidence Quality</h4>
+                    <p>This analysis meets academic publication standards: power analysis, sensitivity testing, transparent methods, complete reproducibility, and honest discussion of limitations.</p>
+
+                    <button class="btn-primary" onclick="copyPitch('government')">Copy This Pitch</button>
+                </div>
+
+                <div id="pitch-community" class="pitch-card">
+                    <h3>Community Presentation: Football for Our Future</h3>
+                    <p class="pitch-intro">We listened to 270 voices from our community. Here's what they told us.</p>
+
+                    <h4>What We Heard</h4>
+                    <ul>
+                        <li><strong>93.5% of community members</strong> support Zakho FC and want more football programs</li>
+                        <li><strong>Girls in the program</strong> report feeling happier, more connected, and more confident</li>
+                        <li><strong>Families say</strong> their daughters are doing better since joining</li>
+                        <li><strong>Football brings us together</strong> - young and old, men and women, all residence backgrounds</li>
+                    </ul>
+
+                    <h4>The Numbers Show Impact</h4>
+                    <p>Girls participating in football programs score:</p>
+                    <ul>
+                        <li><strong>2x higher</strong> on wellbeing measures</li>
+                        <li><strong>Much better</strong> on social support and friendship</li>
+                        <li><strong>Stronger confidence</strong> in themselves</li>
+                    </ul>
+
+                    <h4>What This Means</h4>
+                    <p>Football isn't just recreation - it's helping our daughters recover from displacement, build friendships, and grow stronger. The community wants this. The data shows it works.</p>
+
+                    <h4>What's Next: The Peaceball Project</h4>
+                    <p>We're planning to expand this program with your support:</p>
+                    <ul>
+                        <li>More training sessions and better facilities</li>
+                        <li>Structured curriculum designed for our community</li>
+                        <li>Opportunities for girls to play and grow</li>
+                        <li>Continued support for Zakho FC as our community's team</li>
+                    </ul>
+
+                    <p><strong>This is our project, built on our community's voices and experiences.</strong></p>
+
+                    <button class="btn-primary" onclick="copyPitch('community')">Copy This Pitch</button>
+                </div>
+
+                <div id="pitch-academic" class="pitch-card">
+                    <h3>Research Collaboration: Sport-Based Psychosocial Interventions</h3>
+                    <p class="pitch-intro">Invitation to collaborate on rigorous evaluation of sport-for-development in crisis contexts.</p>
+
+                    <h4>Study Overview</h4>
+                    <p>Two-study mixed-methods analysis examining football's role in mental health and community cohesion among displaced populations in Zakho, Iraq.</p>
+                    <ul>
+                        <li><strong>Study 1:</strong> n=102 adolescent girls (79 participants, 23 non-participants)</li>
+                        <li><strong>Study 2:</strong> n=168 community members across demographics</li>
+                        <li><strong>Measures:</strong> WHO-5 Wellbeing Index, social support scales, custom sentiment measures</li>
+                    </ul>
+
+                    <h4>Key Findings</h4>
+                    <ul>
+                        <li>Very large effect sizes for program participation on all outcomes (d = 4.6 to 5.9)</li>
+                        <li>Effects robust to outlier removal, parametric vs non-parametric tests, and multiple comparison corrections</li>
+                        <li>Community-level sentiment highly uniform across demographics (no gender or residence status effects)</li>
+                        <li>Sentiment scores predict voting behavior with 95% accuracy (AUC = 0.997)</li>
+                    </ul>
+
+                    <h4>Methodological Strengths</h4>
+                    <ul>
+                        <li>Post-hoc power analysis (>99.9% for all primary outcomes)</li>
+                        <li>Comprehensive sensitivity testing</li>
+                        <li>Complete reproducibility (code, data, documentation)</li>
+                        <li>Transparent discussion of limitations</li>
+                    </ul>
+
+                    <h4>Limitations & Future Directions</h4>
+                    <ul>
+                        <li>Cross-sectional design precludes causal inference</li>
+                        <li>Selection bias likely inflates effect sizes</li>
+                        <li>Small non-participant sample limits subgroup analyses</li>
+                        <li><strong>Next:</strong> Longitudinal tracking, comparison communities, qualitative mechanisms</li>
+                    </ul>
+
+                    <h4>Collaboration Opportunities</h4>
+                    <p>Seeking research partners for:</p>
+                    <ul>
+                        <li>Longitudinal evaluation during program implementation</li>
+                        <li>Cross-cultural validation and replication</li>
+                        <li>Mechanisms research (qualitative + quantitative)</li>
+                        <li>Cost-effectiveness analysis</li>
+                    </ul>
+
+                    <p><strong>All code and data available:</strong> <a href="https://github.com/ciiyaa/peaceball-mental-health-analytics" target="_blank">github.com/ciiyaa/peaceball-mental-health-analytics</a></p>
+
+                    <button class="btn-primary" onclick="copyPitch('academic')">Copy This Pitch</button>
+                </div>
+            </div>
+
+            <div class="pitch-footer">
+                <p>All pitches generated from actual study findings. <a href="https://github.com/ciiyaa/peaceball-mental-health-analytics" target="_blank">View full statistical documentation →</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>Join the Movement</h2>
+            <p>This is just the beginning. Help us turn evidence into impact.</p>
+            <div class="cta-buttons">
+                <a href="mailto:ava.abdullaah@gmail.com" class="btn-primary">Get In Touch</a>
+                <a href="https://github.com/ciiyaa/peaceball-mental-health-analytics" class="btn-secondary" target="_blank">View Research</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Peaceball Initiative</h4>
+                    <p>Evidence-based sport programming for mental health in displacement contexts.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="https://github.com/ciiyaa/peaceball-mental-health-analytics" target="_blank">GitHub Repository</a></li>
+                        <li><a href="https://github.com/ciiyaa/peaceball-mental-health-analytics/tree/main/2_analysis" target="_blank">Statistical Methods</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: ava.abdullaah@gmail.com</p>
+                    <p>Location: Based in Kurdistan Region of Iraq</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Peaceball Initiative. Analysis completed December 2025.</p>
+                <p>All code reproducible, all methods documented, all limitations acknowledged.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
