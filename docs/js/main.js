@@ -1,101 +1,58 @@
-// Smooth scroll for navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 });
 
-// Navbar effects on scroll
 let lastScroll = 0;
 window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
     const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-
+    navbar.classList.toggle('scrolled', currentScroll > 50);
     lastScroll = currentScroll;
 });
-
-// Intersection Observer for scroll animations
-const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -100px 0px'
-};
 
 const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            // Only observe once
             observer.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, { threshold: 0.15, rootMargin: '0px 0px -100px 0px' });
 
-// Observe all finding cards and fade-in elements
-document.querySelectorAll('.finding-card, .fade-in').forEach(element => {
-    observer.observe(element);
-});
+document.querySelectorAll('.finding-card, .fade-in').forEach(el => observer.observe(el));
 
-// Pitch Generator Functionality
 const stakeholderButtons = document.querySelectorAll('.stakeholder-btn');
 const pitchCards = document.querySelectorAll('.pitch-card');
 
-stakeholderButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        // Remove active class from all buttons
-        stakeholderButtons.forEach(btn => btn.classList.remove('active'));
-
-        // Add active class to clicked button
+stakeholderButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+        stakeholderButtons.forEach(b => b.classList.remove('active'));
         this.classList.add('active');
-
-        // Get stakeholder type
         const stakeholder = this.getAttribute('data-stakeholder');
-
-        // Hide all pitch cards
         pitchCards.forEach(card => card.classList.remove('active'));
-
-        // Show selected pitch card with animation
-        const selectedCard = document.getElementById(`pitch-${stakeholder}`);
-        if (selectedCard) {
-            setTimeout(() => {
-                selectedCard.classList.add('active');
-            }, 100);
-        }
+        const selected = document.getElementById(`pitch-${stakeholder}`);
+        if (selected) selected.classList.add('active');
     });
 });
 
-// Copy pitch to clipboard with enhanced feedback
 function copyPitch(stakeholder) {
-    const pitchCard = document.getElementById(`pitch-${stakeholder}`);
-    if (!pitchCard) return;
+    const card = document.getElementById(`pitch-${stakeholder}`);
+    if (!card) return;
 
-    // Get all text content
-    let pitchText = pitchCard.innerText;
+    let text = card.innerText.replace('Copy This Pitch', '').trim();
 
-    // Remove the "Copy This Pitch" button text
-    pitchText = pitchText.replace('Copy This Pitch', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = card.querySelector('.btn-primary');
+        const orig = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        btn.style.background = 'linear-gradient(135deg, #2ECC71, #27AE60)';
 
-    // Copy to clipboard
-    navigator.clipboard.writeText(pitchText).then(() => {
-        // Show success message
-        const button = pitchCard.querySelector('.btn-primary');
-        const originalText = button.textContent;
-        button.textContent = '✓ Copied!';
-        button.style.background = 'linear-gradient(135deg, #2ECC71, #27AE60)';
-
-        // Create ripple effect
         const ripple = document.createElement('div');
         ripple.style.cssText = `
             position: absolute;
@@ -107,70 +64,49 @@ function copyPitch(stakeholder) {
             animation: ripple 0.6s ease-out;
             pointer-events: none;
         `;
-
-        const rect = button.getBoundingClientRect();
         ripple.style.left = '50%';
         ripple.style.top = '50%';
-        button.style.position = 'relative';
-        button.appendChild(ripple);
+        btn.style.position = 'relative';
+        btn.appendChild(ripple);
 
         setTimeout(() => ripple.remove(), 600);
-
-        // Reset button after 2 seconds
         setTimeout(() => {
-            button.textContent = originalText;
-            button.style.background = '';
+            btn.textContent = orig;
+            btn.style.background = '';
         }, 2000);
-    }).catch(err => {
-        console.error('Failed to copy:', err);
+    }).catch(() => {
         alert('Failed to copy. Please select and copy manually.');
     });
 }
 
-// Add ripple animation
 const style = document.createElement('style');
 style.textContent = `
     @keyframes ripple {
-        to {
-            width: 200px;
-            height: 200px;
-            opacity: 0;
-        }
+        to { width: 200px; height: 200px; opacity: 0; }
     }
 `;
 document.head.appendChild(style);
 
-// Animated counter for stats
-function animateValue(element, start, end, duration, suffix = '') {
+function animateValue(el, start, end, duration, suffix = '') {
     let startTimestamp = null;
     const step = (timestamp) => {
         if (!startTimestamp) startTimestamp = timestamp;
         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-
-        // Easing function for smooth animation
-        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-        const value = Math.floor(easeOutQuart * (end - start) + start);
-
-        element.textContent = value + suffix;
-
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
-        }
+        const eased = 1 - Math.pow(1 - progress, 4);
+        el.textContent = Math.floor(eased * (end - start) + start) + suffix;
+        if (progress < 1) window.requestAnimationFrame(step);
     };
     window.requestAnimationFrame(step);
 }
 
-// Trigger stats animation when stats section is visible
 const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            const stats = document.querySelectorAll('.stat-card h2');
-            stats.forEach(stat => {
+            document.querySelectorAll('.stat-card h2').forEach(stat => {
                 const text = stat.textContent;
                 let suffix = '';
                 let number = 0;
 
-                // Extract number and suffix
                 if (text.includes('+')) {
                     number = parseInt(text.replace(/\D/g, ''));
                     suffix = '+';
@@ -186,9 +122,7 @@ const statsObserver = new IntersectionObserver((entries) => {
 
                 if (!isNaN(number)) {
                     stat.textContent = '0' + suffix;
-                    setTimeout(() => {
-                        animateValue(stat, 0, number, 2000, suffix);
-                    }, 300);
+                    setTimeout(() => animateValue(stat, 0, number, 2000, suffix), 300);
                 }
             });
             statsObserver.unobserve(entry.target);
@@ -197,11 +131,8 @@ const statsObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 const statsSection = document.querySelector('.key-stats');
-if (statsSection) {
-    statsObserver.observe(statsSection);
-}
+if (statsSection) statsObserver.observe(statsSection);
 
-// Parallax effect for hero
 window.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
@@ -210,7 +141,6 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Method cards staggered animation
 const methodCards = document.querySelectorAll('.method-card');
 const methodObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
@@ -231,19 +161,15 @@ methodCards.forEach(card => {
     methodObserver.observe(card);
 });
 
-// Story cards hover effect
 document.querySelectorAll('.story-card').forEach(card => {
     card.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-15px) scale(1.02)';
     });
-
     card.addEventListener('mouseleave', function() {
         this.style.transform = 'translateY(0) scale(1)';
     });
 });
 
-// Challenge items animate in sequence
-const challengeItems = document.querySelectorAll('.challenge-item');
 const challengeObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
@@ -256,26 +182,23 @@ const challengeObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.3 });
 
-challengeItems.forEach(item => {
+document.querySelectorAll('.challenge-item').forEach(item => {
     item.style.opacity = '0';
     item.style.transform = 'translateY(50px)';
     item.style.transition = 'all 0.8s ease';
     challengeObserver.observe(item);
 });
 
-// Smooth reveal for finding items
-const findingLists = document.querySelectorAll('.finding-text li');
-findingLists.forEach((item, index) => {
+document.querySelectorAll('.finding-text li').forEach((item, i) => {
     item.style.opacity = '0';
     item.style.transform = 'translateX(-30px)';
-    item.style.transition = `all 0.5s ease ${index * 0.1}s`;
+    item.style.transition = `all 0.5s ease ${i * 0.1}s`;
 });
 
 const findingObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            const items = entry.target.querySelectorAll('li');
-            items.forEach(item => {
+            entry.target.querySelectorAll('li').forEach(item => {
                 item.style.opacity = '1';
                 item.style.transform = 'translateX(0)';
             });
@@ -284,23 +207,16 @@ const findingObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.3 });
 
-document.querySelectorAll('.finding-text').forEach(finding => {
-    findingObserver.observe(finding);
-});
+document.querySelectorAll('.finding-text').forEach(f => findingObserver.observe(f));
 
-// Add dynamic cursor effect to buttons
-document.querySelectorAll('.btn-primary, .btn-secondary, .stakeholder-btn').forEach(button => {
-    button.addEventListener('mousemove', function(e) {
+document.querySelectorAll('.btn-primary, .btn-secondary, .stakeholder-btn').forEach(btn => {
+    btn.addEventListener('mousemove', function(e) {
         const rect = this.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        this.style.setProperty('--mouse-x', x + 'px');
-        this.style.setProperty('--mouse-y', y + 'px');
+        this.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+        this.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
     });
 });
 
-// Loading state for page
 window.addEventListener('load', () => {
     document.body.style.opacity = '0';
     setTimeout(() => {
@@ -309,8 +225,6 @@ window.addEventListener('load', () => {
     }, 100);
 });
 
-
-// Interactive Gallery Lightbox
 function createLightbox() {
     const lightbox = document.createElement('div');
     lightbox.id = 'lightbox';
@@ -361,7 +275,6 @@ function createLightbox() {
         closeBtn.style.transform = 'rotate(90deg) scale(1.1)';
         closeBtn.style.background = 'rgba(220, 20, 60, 1)';
     });
-
     closeBtn.addEventListener('mouseleave', () => {
         closeBtn.style.transform = 'rotate(0deg) scale(1)';
         closeBtn.style.background = 'rgba(220, 20, 60, 0.9)';
@@ -371,7 +284,6 @@ function createLightbox() {
     lightbox.appendChild(closeBtn);
     document.body.appendChild(lightbox);
 
-    // Close on click
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox || e.target === closeBtn) {
             lightbox.style.animation = 'fadeOut 0.3s ease';
@@ -382,11 +294,8 @@ function createLightbox() {
         }
     });
 
-    // Close on Escape key
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.style.display === 'flex') {
-            lightbox.click();
-        }
+        if (e.key === 'Escape' && lightbox.style.display === 'flex') lightbox.click();
     });
 
     return { lightbox, content };
@@ -394,24 +303,11 @@ function createLightbox() {
 
 const { lightbox, content } = createLightbox();
 
-// Add lightbox animations
 const lightboxStyle = document.createElement('style');
 lightboxStyle.textContent = `
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    @keyframes fadeOut {
-        from { opacity: 1; }
-        to { opacity: 0; }
-    }
-
-    @keyframes zoomIn {
-        from { transform: scale(0.8); opacity: 0; }
-        to { transform: scale(1); opacity: 1; }
-    }
-
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+    @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     #lightbox-content img, #lightbox-content video {
         max-width: 100%;
         max-height: 90vh;
@@ -421,43 +317,38 @@ lightboxStyle.textContent = `
 `;
 document.head.appendChild(lightboxStyle);
 
-// Add click handlers to gallery items
 document.querySelectorAll('.gallery-item').forEach(item => {
     item.style.cursor = 'pointer';
-
     item.addEventListener('click', function(e) {
         e.preventDefault();
-
         const img = this.querySelector('img');
         const video = this.querySelector('video');
 
         if (img) {
-            const lightboxImg = document.createElement('img');
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
+            const lb = document.createElement('img');
+            lb.src = img.src;
+            lb.alt = img.alt;
             content.innerHTML = '';
-            content.appendChild(lightboxImg);
+            content.appendChild(lb);
             lightbox.style.display = 'flex';
             lightbox.style.animation = 'fadeIn 0.3s ease';
         } else if (video) {
-            const lightboxVideo = document.createElement('video');
-            lightboxVideo.src = video.querySelector('source').src;
-            lightboxVideo.controls = true;
-            lightboxVideo.autoplay = true;
-            lightboxVideo.style.maxWidth = '100%';
-            lightboxVideo.style.maxHeight = '90vh';
+            const lbVid = document.createElement('video');
+            lbVid.src = video.querySelector('source').src;
+            lbVid.controls = true;
+            lbVid.autoplay = true;
+            lbVid.style.maxWidth = '100%';
+            lbVid.style.maxHeight = '90vh';
             content.innerHTML = '';
-            content.appendChild(lightboxVideo);
+            content.appendChild(lbVid);
             lightbox.style.display = 'flex';
             lightbox.style.animation = 'fadeIn 0.3s ease';
         }
 
-        // Celebration effect
         triggerCelebration();
     });
 });
 
-// Celebration particle burst
 function triggerCelebration() {
     const burst = document.createElement('div');
     burst.style.cssText = `
@@ -470,21 +361,19 @@ function triggerCelebration() {
     document.body.appendChild(burst);
 
     for (let i = 0; i < 20; i++) {
-        const confetti = document.createElement('div');
-        confetti.innerHTML = ['⚽', '🎉', '✨', '⭐'][Math.floor(Math.random() * 4)];
-        confetti.style.cssText = `
+        const piece = document.createElement('div');
+        piece.innerHTML = ['⚽', '🎉', '✨', '⭐'][Math.floor(Math.random() * 4)];
+        piece.style.cssText = `
             position: absolute;
             font-size: 20px;
             animation: burst 1s ease-out forwards;
             animation-delay: ${i * 0.02}s;
         `;
-
         const angle = (Math.PI * 2 * i) / 20;
         const velocity = Math.random() * 200 + 100;
-        confetti.style.setProperty('--x', Math.cos(angle) * velocity + 'px');
-        confetti.style.setProperty('--y', Math.sin(angle) * velocity + 'px');
-
-        burst.appendChild(confetti);
+        piece.style.setProperty('--x', Math.cos(angle) * velocity + 'px');
+        piece.style.setProperty('--y', Math.sin(angle) * velocity + 'px');
+        burst.appendChild(piece);
     }
 
     setTimeout(() => burst.remove(), 1500);
@@ -493,151 +382,120 @@ function triggerCelebration() {
 const burstStyle = document.createElement('style');
 burstStyle.textContent = `
     @keyframes burst {
-        0% {
-            transform: translate(0, 0) scale(1) rotate(0deg);
-            opacity: 1;
-        }
-        100% {
-            transform: translate(var(--x), var(--y)) scale(0) rotate(360deg);
-            opacity: 0;
-        }
+        0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+        100% { transform: translate(var(--x), var(--y)) scale(0) rotate(360deg); opacity: 0; }
     }
 `;
 document.head.appendChild(burstStyle);
 
-// Stories Section Quote Animations
 function animateStories() {
-    // Typewriter effect for ALL featured quotes
-    const featuredQuotes = document.querySelectorAll('.story-featured blockquote');
-    featuredQuotes.forEach((featuredQuote) => {
-        const originalText = featuredQuote.textContent;
-        featuredQuote.textContent = '';
-        featuredQuote.style.opacity = '1';
+    document.querySelectorAll('.story-featured blockquote').forEach(quote => {
+        const orig = quote.textContent;
+        quote.textContent = '';
+        quote.style.opacity = '1';
 
-        let charIndex = 0;
-        function typeWriter() {
-            if (charIndex < originalText.length) {
-                featuredQuote.textContent += originalText.charAt(charIndex);
-                charIndex++;
-                setTimeout(typeWriter, 20);
+        let i = 0;
+        function type() {
+            if (i < orig.length) {
+                quote.textContent += orig.charAt(i);
+                i++;
+                setTimeout(type, 20);
             }
         }
 
-        // Observer to trigger when scrolled into view
-        const quoteObserver = new IntersectionObserver((entries) => {
+        const qObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setTimeout(typeWriter, 300);
-                    quoteObserver.unobserve(entry.target);
+                    setTimeout(type, 300);
+                    qObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.3 });
 
-        quoteObserver.observe(featuredQuote);
+        qObserver.observe(quote);
     });
 
-    // Animated reveal for story cards
-    const storyCards = document.querySelectorAll('.story-card');
-    storyCards.forEach((card, index) => {
+    document.querySelectorAll('.story-card').forEach((card, index) => {
         const title = card.querySelector('h4');
         const text = card.querySelector('p:not(.story-meta)');
         const meta = card.querySelector('.story-meta');
 
         if (title && text) {
-            // Hide initially
             title.style.opacity = '0';
             title.style.transform = 'translateY(-10px)';
             text.style.opacity = '0';
             text.style.transform = 'translateY(10px)';
-            if (meta) {
-                meta.style.opacity = '0';
-            }
+            if (meta) meta.style.opacity = '0';
 
-            // Animate on scroll
-            const cardObserver = new IntersectionObserver((entries) => {
+            const cObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Title appears first
                         setTimeout(() => {
                             title.style.transition = 'all 0.6s ease';
                             title.style.opacity = '1';
                             title.style.transform = 'translateY(0)';
                         }, index * 200);
-
-                        // Text appears second
                         setTimeout(() => {
                             text.style.transition = 'all 0.6s ease';
                             text.style.opacity = '1';
                             text.style.transform = 'translateY(0)';
                         }, index * 200 + 300);
-
-                        // Meta appears last
                         if (meta) {
                             setTimeout(() => {
                                 meta.style.transition = 'all 0.6s ease';
                                 meta.style.opacity = '1';
                             }, index * 200 + 600);
                         }
-
-                        cardObserver.unobserve(entry.target);
+                        cObserver.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.2 });
 
-            cardObserver.observe(card);
+            cObserver.observe(card);
         }
     });
 
-    // Highlight effect on hover for story cards
-    storyCards.forEach(card => {
+    document.querySelectorAll('.story-card').forEach(card => {
         const text = card.querySelector('p:not(.story-meta)');
-
         card.addEventListener('mouseenter', function() {
-            // Add subtle pulse to text
             text.style.transition = 'all 0.3s ease';
             text.style.transform = 'scale(1.02)';
             text.style.color = '#1a1a1a';
         });
-
         card.addEventListener('mouseleave', function() {
             text.style.transform = 'scale(1)';
             text.style.color = '';
         });
     });
 
-    // Animated quote authors for ALL featured stories
-    const quoteAuthors = document.querySelectorAll('.story-featured .quote-author');
-    quoteAuthors.forEach((quoteAuthor) => {
-        quoteAuthor.style.opacity = '0';
-        quoteAuthor.style.transform = 'translateX(-20px)';
+    document.querySelectorAll('.story-featured .quote-author').forEach(author => {
+        author.style.opacity = '0';
+        author.style.transform = 'translateX(-20px)';
 
-        const authorObserver = new IntersectionObserver((entries) => {
+        const aObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     setTimeout(() => {
-                        quoteAuthor.style.transition = 'all 0.8s ease';
-                        quoteAuthor.style.opacity = '1';
-                        quoteAuthor.style.transform = 'translateX(0)';
+                        author.style.transition = 'all 0.8s ease';
+                        author.style.opacity = '1';
+                        author.style.transform = 'translateX(0)';
                     }, 1500);
-                    authorObserver.unobserve(entry.target);
+                    aObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.3 });
 
-        authorObserver.observe(quoteAuthor);
+        aObserver.observe(author);
     });
 }
 
-// Initialize story animations when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', animateStories);
 } else {
     animateStories();
 }
 
-// Data Visualization Charts
 function createCharts() {
-    // Chart 1: Wellbeing Comparison
     const wellbeingCtx = document.getElementById('wellbeingChart');
     if (wellbeingCtx) {
         new Chart(wellbeingCtx, {
@@ -666,10 +524,7 @@ function createCharts() {
                     legend: {
                         display: true,
                         position: 'top',
-                        labels: {
-                            font: { size: 14, weight: 'bold' },
-                            padding: 15
-                        }
+                        labels: { font: { size: 14, weight: 'bold' }, padding: 15 }
                     },
                     title: {
                         display: true,
@@ -682,31 +537,19 @@ function createCharts() {
                     y: {
                         beginAtZero: true,
                         max: 100,
-                        ticks: {
-                            font: { size: 12 }
-                        },
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.05)'
-                        }
+                        ticks: { font: { size: 12 } },
+                        grid: { color: 'rgba(0, 0, 0, 0.05)' }
                     },
                     x: {
-                        ticks: {
-                            font: { size: 12 }
-                        },
-                        grid: {
-                            display: false
-                        }
+                        ticks: { font: { size: 12 } },
+                        grid: { display: false }
                     }
                 },
-                animation: {
-                    duration: 2000,
-                    easing: 'easeOutQuart'
-                }
+                animation: { duration: 2000, easing: 'easeOutQuart' }
             }
         });
     }
 
-    // Chart 2: Community Support
     const communityCtx = document.getElementById('communityChart');
     if (communityCtx) {
         new Chart(communityCtx, {
@@ -715,14 +558,8 @@ function createCharts() {
                 labels: ['Support Football Program', 'Do Not Support'],
                 datasets: [{
                     data: [93.5, 6.5],
-                    backgroundColor: [
-                        'rgba(220, 20, 60, 0.8)',
-                        'rgba(224, 224, 224, 0.8)'
-                    ],
-                    borderColor: [
-                        'rgba(220, 20, 60, 1)',
-                        'rgba(200, 200, 200, 1)'
-                    ],
+                    backgroundColor: ['rgba(220, 20, 60, 0.8)', 'rgba(224, 224, 224, 0.8)'],
+                    borderColor: ['rgba(220, 20, 60, 1)', 'rgba(200, 200, 200, 1)'],
                     borderWidth: 2
                 }]
             },
@@ -734,10 +571,7 @@ function createCharts() {
                     legend: {
                         display: true,
                         position: 'bottom',
-                        labels: {
-                            font: { size: 14, weight: 'bold' },
-                            padding: 15
-                        }
+                        labels: { font: { size: 14, weight: 'bold' }, padding: 15 }
                     },
                     title: {
                         display: true,
@@ -753,25 +587,17 @@ function createCharts() {
                         }
                     }
                 },
-                animation: {
-                    animateRotate: true,
-                    animateScale: true,
-                    duration: 2000,
-                    easing: 'easeOutQuart'
-                }
+                animation: { animateRotate: true, animateScale: true, duration: 2000, easing: 'easeOutQuart' }
             }
         });
     }
 }
 
-// Initialize charts when page loads
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', createCharts);
 } else {
     createCharts();
 }
 
-// Console message
 console.log('%c⚽ PEACEBALL', 'color: #DC143C; font-size: 24px; font-weight: bold;');
 console.log('%cFootball • Hope • Data', 'color: #666; font-size: 14px;');
-console.log('Website loaded successfully with animated stories and data visualizations!');
