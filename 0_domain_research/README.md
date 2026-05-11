@@ -53,10 +53,10 @@ These questions converged during Zakho's historic FIFA Best Fan Award nomination
 4. Explore evidence files for the research foundation
 
 **Looking for specific information?**
-- Study populations ’ `population_context.md`
-- Research gaps ’ `gaps_and_opportunities.md`
-- Wellbeing evidence ’ `sport_and_wellbeing_evidence.md`
-- Citations ’ `references.bib`
+- Study populations â€™ `population_context.md`
+- Research gaps â€™ `gaps_and_opportunities.md`
+- Wellbeing evidence â€™ `sport_and_wellbeing_evidence.md`
+- Citations â€™ `references.bib`
 
 ## Key Themes
 
